@@ -10,27 +10,19 @@ st.subheader('Welcome to XYZ Co!')
 
 st.markdown('---')
 
-df=pd.read_csv("https://raw.githubusercontent.com/nour0202/streamlit-tutorial/main/Data_set.csv", encoding='ISO-8859-1')
-
 #insert select box
 
-selected_Segment = st.selectbox("Select a Segment", ['All'] + list(df['Segment'].unique()))
+if "visibility" not in st.session_state:
+    st.session_state.visibility = "visible"
+    st.session_state.disabled = False
 
-fil_df = df[df.Segment == selected_Segment]
-
-fig = px.bar(
-    fil_df if selected_Segment != 'All' else df,  # Use filtered data if applicable
-    x="Segment",
-    y="Profit",
-    title="Profit Distribution by Customer Segment"
+option = st.selectbox(
+        "Select a Segment",
+        ("All", "Consumer", "Home Office Segment", "Corporate"),
+        key=df,
+        label_visibility=st.session_state.visibility,
+        disabled=st.session_state.disabled,
 )
-
-st.plotly_chart(fig) 
-
-st.write("This pie chart the percentages of profit as of each segment.")
-st.write("As shown in the figure, Consumer Segment accounts for the highest portion of profits which is approximately 45K.")
-
-st.markdown("---") #horizontal line
 
 #insert bar graph
 
@@ -40,7 +32,9 @@ fig = px.bar(
       y="Profit",
       title="Profit Per Customer Segment"       
 )
-fig
+fig 
+
+st.markdown("---") #horizontal line
 
 st.write("This bar chart shows the total sales for each state within the specified range. You can scroll the slide bar and specify the minimum and the maximum amount of sales.")
 st.write("By hovering on the columns, California registered the highest sales, then New York, and then Washington having 146K, 93k, 65k, respectively.")
@@ -61,3 +55,10 @@ st.write("This bar chart shows the total sales for each state within the specifi
 st.write("By hovering on the columns, California registered the highest sales, then New York, and then Washington having 146K, 93k, 65k, respectively.")
 
 st.markdown("---")
+
+#insert check box
+
+agree = st.checkbox('I am not a Robot')
+
+if agree:
+    st.write('Welcome!')
