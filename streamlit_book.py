@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-df=pd.read_csv("https://raw.githubusercontent.com/nour0202/streamlit-tutorial/main/Data_set.csv", encoding='utf-8')
+df=pd.read_csv("https://raw.githubusercontent.com/nour0202/streamlit-tutorial/main/Data_set.csv", encoding='ISO-8859-1')
 
 st.set_page_config(page_title='Company Portfolio')
 st.title('Company Portfolio 2023')
@@ -10,7 +10,7 @@ st.subheader('Welcome to XYZ Co!')
 
 st.markdown('---')
 
-df=pd.read_csv("https://raw.githubusercontent.com/nour0202/streamlit-tutorial/main/Data_set.csv", encoding='utf-8')
+df=pd.read_csv("https://raw.githubusercontent.com/nour0202/streamlit-tutorial/main/Data_set.csv", encoding='ISO-8859-1')
 
 #insert select box
 
