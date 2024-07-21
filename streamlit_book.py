@@ -10,6 +10,8 @@ st.subheader('Welcome to XYZ Co!')
 
 st.markdown('---')
 
+df=pd.read_csv("https://github.com/nour0202/streamlit-tutorial/blob/main/Data_set.csv")
+
 #insert select box
 
 selected_Segment = st.selectbox("Select a Segment", ['All'] + list(df['Segment'].unique()))
