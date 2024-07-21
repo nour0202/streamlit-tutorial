@@ -10,8 +10,6 @@ st.subheader('Welcome to XYZ Co!')
 
 st.markdown('---')
 
-df=pd.read_excel(r"C:\Users\Admin\Desktop\Data.xlsx")
-
 #insert select box
 
 selected_Segment = st.selectbox("Select a Segment", ['All'] + list(df['Segment'].unique()))
